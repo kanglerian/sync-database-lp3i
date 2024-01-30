@@ -10,13 +10,13 @@ router.get("/", async (req, res) => {
     res.json(applicants);
 });
 
-router.get("/sync/:identity/:sheet", async (req, res) => {
+router.post("/sync", async (req, res) => {
     try {
         const response = await axios.get(
-            `https://script.google.com/macros/s/AKfycbyq8NzlVbO2n8kRrkRYMDmZNjRb4aNmV0clLvAKOa5ej-XgZzTA2VL35X2VM7BMl5Br/exec?person=${req.params.sheet}`
+            `https://script.google.com/macros/s/AKfycbyq8NzlVbO2n8kRrkRYMDmZNjRb4aNmV0clLvAKOa5ej-XgZzTA2VL35X2VM7BMl5Br/exec?person=${req.body.sheet}`
         );
         let applicants = response.data;
-        let identityUser = req.params.identity;
+        let identityUser = req.body.identity;
 
         const isValidDate = (dateString) => {
             const regex = /^\d{4}-\d{2}-\d{2}$/;
@@ -348,5 +348,4 @@ router.get("/sync/:identity/:sheet", async (req, res) => {
     }
 });
 
-module.exports = router;
 module.exports = router;
