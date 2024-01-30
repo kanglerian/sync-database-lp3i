@@ -8,7 +8,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const applicantsRouter = require('./routes/applicants');
 const schoolsRouter = require('./routes/schools');
-const historiesRouter = require('./routes/histories');
 
 const app = express();
 
