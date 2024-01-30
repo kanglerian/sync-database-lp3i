@@ -23,6 +23,5 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/applicants', applicantsRouter);
 app.use('/schools', schoolsRouter);
-app.use('/histories', historiesRouter);
 
 module.exports = app;
