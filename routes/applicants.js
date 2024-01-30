@@ -342,11 +342,9 @@ router.get("/sync/:identity/:sheet", async (req, res) => {
 
         }
 
-        return res.json({
-            message: 'Berhasil sinkronisasi'
-        });
+        return res.status(200).json({ message: 'Berhasil sinkronisasi' });
     } catch (error) {
-        console.log(error);
+        return res.status(500).json({ error: "Terjadi kesalahan pada server." });
     }
 });
 
